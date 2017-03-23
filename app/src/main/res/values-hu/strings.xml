@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="buttonClose">Kilépés</string>
+    <string name="buttonShowResults">Helyes válaszok</string>
+    <string name="buttonTryAgain">Próbáld újra</string>
+    <string name="question1">Melyik Android verzió nem jelent meg soha telefonra?</string>
+    <string name="question2">Melyik Android verzió elnevezése \"Jelly Bean\"?</string>
+    <string name="question2a4">Mindhárom</string>
+    <string name="question3">Minek a rövidítése az AOSP?</string>
+    <string name="question4">Mely vállalatok gyártottak Nexus eszközöket?</string>
+    <string name="question5">A következők közül melyek hivatalos Android verzió elnevezések?</string>
+    <string name="question6">A következők közül melyek Android  futtatókörnyezetek?</string>
+    <string name="question7">Melyik vállalat készítette az első Nexus eszközt?</string>
+    <string name="question8">Mi volt a neve a Google Play elődjének?</string>
+    <string name="summary1">Tegyél még egy próbát...</string>
+    <string name="summary2">Olvass még pár cikket az Androidról...</string>
+    <string name="summary3">Ez közel volt! Benne vagy a legjobb 20%-ban!</string>
+    <string name="summary4">Igazi Android rajongó vagy! Szép munka!</string>
+    <string name="summaryPoints"><xliff:g id="points" example="1">%1$s</xliff:g> pontot értél el 8-ból</string>
+    <string name="toast1">Sok sikert!</string>
+    <string name="toast2">Sok sikert ismét!</string>
+    <string name="toast3">Viszlát!</string>
+    <string name="text_content">Az Android a legnagyobb számban telepített rendszer az összes mobilra szánt platform közül, és ez a szám gyorsan nő. Minden nap felhasználók újabb milliója kezdi el használni, és élvezni az alkalmazások, játékok, egyéb digitális tartalmak előnyeit. Ha valaha olvastál pár cikket a rendszer történetéről, ez a kvíz menni fog! </string>
+    <string name="buttonSubmit">Számol</string>
+    <string name="bbquestion1">Mi volt Walter White középső neve?</string>
+    <string name="bbquestion2">Milyen típusú autója volt Walt-nak?</string>
+    <string name="bbquestion3">Hogy hívták Walter alteregóját?</string>
+    <string name="bbquestion4">Közülük kik voltak Jesse Pinkman barátai?</string>
+    <string name="bbquestion5">Milyen drogok használata közben láttuk Jesse-t?</string>
+    <string name="bbquestion6">A következők közül melyek Jesse álnevei?</string>
+    <string name="bbquestion7">Ki volt Walt és Jesse ügyvédje?</string>
+    <string name="bbquestion8">Mi volt Gus gyorséttermének a neve?</string>
+    <string name="hint">válasz</string>
+    <string name="bbsummary2">Nézd újra a sorozatot...</string>
+    <string name="bbsummary4">Igazi Breaking Bad rajongó vagy! Szép munka!</string>
+    <string name="bbtextcontent">A Breaking Bad egy Vince Gilligan által készített amerikai drámasorozat. Egy középiskolai kémiatanárt operálhatatlan tüdőrákkal diagnosztizálnak, aminek hatására  metamfetamin készítésbe és értékesítésbe kezdett, hogy halála után is anyagi biztonságban tudhassa a családját. Igazi rajongó vagy? Tégy egy próbát!</string>
+    <string name="bbquestion5a3">fű</string>
+    <string name="bbquestion5a4">kristály</string>
+    <string name="bbquestion5a2">ecstasy</string>
+    <string name="bbquestion5a1">heroin</string>
+</resources>

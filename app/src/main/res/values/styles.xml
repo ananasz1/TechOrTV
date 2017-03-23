@@ -1,0 +1,150 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/appBarHeight</item>
+    </style>
+
+    <style name="appBarLayout">
+        <item name="android:layout_height">@dimen/appBarHeight</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:theme">@style/Theme.AppCompat.Light.DarkActionBar</item>
+    </style>
+
+    <style name="expandedAppbar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/expandedText</item>
+        <item name="android:textColor">@color/actionbarText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="collapsingToolbarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="collapsedAppbar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/collapsedText</item>
+        <item name="android:textColor">@color/actionbarText</item>
+    </style>
+
+    <style name="collapseImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="collapseImage.android">
+        <item name="android:background">@drawable/androidtoolbar3</item>
+    </style>
+
+    <style name="collapseImage.BB">
+        <item name="android:background">@drawable/breakingbadtoolbar</item>
+    </style>
+
+    <style name="ButtonLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/lightText</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">@dimen/buttonPaddingRight</item>
+        <item name="android:layout_marginBottom">@dimen/buttonMarginBottom</item>
+    </style>
+
+    <style name="ButtonLayout.SubmitStart">
+        <item name="android:background">@color/darka</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:drawableLeft">@drawable/minidroid</item>
+    </style>
+
+    <style name="ButtonLayout.SubmitStart.bb">
+        <item name="android:background">@color/darkBB</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:drawableLeft">@drawable/minibb</item>
+    </style>
+
+    <style name="ButtonLayout.popup">
+        <item name="android:background">@color/darka</item>
+        <item name="android:layout_width">@dimen/buttonPopUpWidth</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:drawableLeft">@drawable/minidroid</item>
+    </style>
+
+    <style name="ButtonLayout.popup.bb">
+        <item name="android:background">@color/darkBB</item>
+        <item name="android:layout_width">@dimen/buttonPopUpWidth</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:drawableLeft">@drawable/minibb</item>
+    </style>
+
+    <style name="nestedScrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="scrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/lightBackground</item>
+    </style>
+
+    <style name="radioGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="cardview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/cardmargin</item>
+    </style>
+
+    <style name="cardLinear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="question">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/cardQuestionText</item>
+        <item name="android:textColor">@color/lightText</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="question.android">
+        <item name="android:drawableLeft">@drawable/minidroid</item>
+        <item name="android:background">@color/darka</item>
+    </style>
+
+    <style name="question.BB">
+        <item name="android:background">@color/darkBB</item>
+        <item name="android:drawableLeft">@drawable/minibb</item>
+    </style>
+
+    <style name="answers">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/cardAnswerText</item>
+        <item name="android:background">@color/lightBackground</item>
+        <item name="android:padding">@dimen/answerPadding</item>
+    </style>
+
+    <style name="answers.android">
+        <item name="android:textColor">@color/darka</item>
+        <item name="android:buttonTint" tools:targetApi="lollipop">@color/darka</item>
+    </style>
+
+    <style name="answers.bb">
+        <item name="android:textColor">@color/darkBB</item>
+        <item name="android:buttonTint" tools:targetApi="lollipop">@color/darkBB</item>
+    </style>
+
+</resources>
+
+

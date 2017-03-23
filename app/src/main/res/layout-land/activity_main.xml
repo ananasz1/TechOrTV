@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.vikischmideg.techortv.MainActivity">
+
+
+    <LinearLayout
+        style="@style/cardLinear"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            style="@style/cardview"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout style="@style/cardLinear">
+
+                <TextView
+                    style="@style/question.android"
+                    android:text="@string/quizName" />
+
+                <ScrollView style="@style/scrollView">
+
+                    <LinearLayout style="@style/cardLinear">
+
+                        <TextView
+                            style="@style/answers.android"
+                            android:text="@string/text_content" />
+
+                        <Button
+                            style="@style/ButtonLayout.SubmitStart"
+                            android:layout_width="wrap_content"
+                            android:onClick="goToQuiz"
+                            android:text="@string/buttonStart" />
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/cardview"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout style="@style/cardLinear">
+
+                <TextView
+                    style="@style/question.BB"
+                    android:text="@string/quizTitlebb" />
+
+                <ScrollView style="@style/scrollView">
+
+                    <LinearLayout style="@style/cardLinear">
+
+                        <TextView
+                            style="@style/answers.bb"
+                            android:text="@string/bbtextcontent" />
+
+                        <Button
+                            style="@style/ButtonLayout.SubmitStart.bb"
+                            android:layout_width="wrap_content"
+                            android:onClick="goToBB"
+                            android:text="@string/buttonStart" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</ScrollView>

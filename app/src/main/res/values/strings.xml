@@ -1,0 +1,93 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" translatable="false">Tech Or TV</string>
+    <string name="quizTitle" translatable="false">Android Quiz</string>
+    <string name="quizTitlebb" translatable="false">Breaking Bad</string>
+    <string name="toast1">Good luck!</string>
+    <string name="toast2">Good luck again!</string>
+    <string name="toast3">Good bye!</string>
+    <string name="buttonStart" translatable="false">Start</string>
+    <string name="buttonSubmit">Submit</string>
+    <string name="buttonShowResults">Show Results</string>
+    <string name="buttonTryAgain">Let\'s Try Again</string>
+    <string name="buttonClose">exit</string>
+    <string name="question1">What version of Android was never released for phones?</string>
+    <string name="question1a1" translatable="false">Eclair</string>
+    <string name="question1a2" translatable="false">Honeycomb</string>
+    <string name="question1a3" translatable="false">Gingerbread</string>
+    <string name="question1a4" translatable="false">Froyo</string>
+    <string name="question2">What version of Android is code-named \"Jelly Bean\"?</string>
+    <string name="question2a1" translatable="false">4.1</string>
+    <string name="question2a2" translatable="false">4.2</string>
+    <string name="question2a3" translatable="false">4.3</string>
+    <string name="question2a4">All of the above</string>
+    <string name="question3">What does AOSP stand for?</string>
+    <string name="question3a1" translatable="false">Android Operating System Project</string>
+    <string name="question3a2" translatable="false">Android Open Stack Programming</string>
+    <string name="question3a3" translatable="false">Android Open Source Project</string>
+    <string name="question3a4" translatable="false">Android Open Source Protocol</string>
+    <string name="question4">Which companies built Nexus devices?</string>
+    <string name="question4a1" translatable="false">Asus</string>
+    <string name="question4a2" translatable="false">LG</string>
+    <string name="question4a3" translatable="false">Sony</string>
+    <string name="question4a4" translatable="false">Huawei</string>
+    <string name="question5">Which of the following are official Android code names?</string>
+    <string name="question5a1" translatable="false">Donut</string>
+    <string name="question5a2" translatable="false">Ice Cream Sandwich</string>
+    <string name="question5a3" translatable="false">KitKat</string>
+    <string name="question5a4" translatable="false">Jello</string>
+    <string name="question6">Which of the following are Android runtimes?</string>
+    <string name="question6a1" translatable="false">DroidRun</string>
+    <string name="question6a2" translatable="false">ART</string>
+    <string name="question6a3" translatable="false">Dalvik</string>
+    <string name="question6a4" translatable="false">DART</string>
+    <string name="question7">What company built the first Nexus device?</string>
+    <string name="answer7" translatable="false">htc</string>
+    <string name="question8">What was the name of Google Play\'s predecessor?</string>
+    <string name="answer8" translatable="false">android market</string>
+    <string name="summaryPoints">"You have <xliff:g id="points" example="1">%1$s</xliff:g> out of 8 points.</string>
+    <string name="summary1">Give yourself another chance...</string>
+    <string name="summary2">OK, read some more articles about Android...</string>
+    <string name="bbsummary2">Watch again the series...</string>
+    <string name="summary3">Oh, you are so close! You are in the top 20%...</string>
+    <string name="summary4">You are a real Android fan! Nice work!</string>
+    <string name="bbsummary4">You are a real Breaking Bad fan! Nice work!</string>
+    <string name="quizName" translatable="false">Android warm-up</string>
+    <string name="text_content">Android is the largest installed base of any mobile platform and growing fast—every day another million users power up their Android devices for the first time and start looking for apps, games, and other digital content. If you have ever read a few article about the story af Android, you can do this quiz!</string>
+    <string name="bbquestion1">What was Walter White\'s middle name?</string>
+    <string name="bbquestion1a1" translatable="false">Flynn</string>
+    <string name="bbquestion1a2" translatable="false">Archibald</string>
+    <string name="bbquestion1a3" translatable="false">Hartwell</string>
+    <string name="bbquestion1a4" translatable="false">Elliott</string>
+    <string name="bbquestion2">What was Walt\'s main car in the series?</string>
+    <string name="bbquestion2a1" translatable="false">Dodge Stratus</string>
+    <string name="bbquestion2a2" translatable="false">Ford Merkur</string>
+    <string name="bbquestion2a3" translatable="false">Pontiac Aztec</string>
+    <string name="bbquestion2a4" translatable="false">AMC Eagle</string>
+    <string name="bbquestion3">What was the name of Walter White\'s alias?</string>
+    <string name="bbquestion3a1" translatable="false">Hackmeyer</string>
+    <string name="bbquestion3a2" translatable="false">Hymerman</string>
+    <string name="bbquestion3a3" translatable="false">Heidelberg</string>
+    <string name="bbquestion3a4" translatable="false">Heisenberg</string>
+    <string name="bbquestion4">Who of the following were Jesse Pinkman\'s friends?</string>
+    <string name="bbquestion4a1" translatable="false">Skinny Pete</string>
+    <string name="bbquestion4a2" translatable="false">Badger</string>
+    <string name="bbquestion4a3" translatable="false">Combo</string>
+    <string name="bbquestion4a4" translatable="false">Krazy-8</string>
+    <string name="bbquestion5">What kind of drugs have we seen Jesse use/using?</string>
+    <string name="bbquestion5a1">Heroin</string>
+    <string name="bbquestion5a2">Ecstasy</string>
+    <string name="bbquestion5a3">Weed</string>
+    <string name="bbquestion5a4">Meth</string>
+    <string name="bbquestion6">Which of the following were Jesse\'s aliases?</string>
+    <string name="bbquestion6a1" translatable="false">Danger J.</string>
+    <string name="bbquestion6a2" translatable="false">Cap\'n Cook</string>
+    <string name="bbquestion6a3" translatable="false">Jesse Jackson</string>
+    <string name="bbquestion6a4" translatable="false">Lazy Blue</string>
+    <string name="bbquestion7">Who was the lawyer of Walt and Jesse?</string>
+    <string name="bbanswer7" translatable="false">Saul Goodman</string>
+    <string name="bbquestion8">What was the name of the fast food restaurant owned by Gus?</string>
+    <string name="bbanswer8" translatable="false">Los Pollos Hermanos</string>
+    <string name="bbtextcontent">Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family\'s future. Are you a real fan? Give it a try!</string>
+    <string name="hint">answer here</string>
+</resources>
+

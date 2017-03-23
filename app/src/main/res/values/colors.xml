@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5D4037</color>
+    <color name="colorPrimaryDark">#5D4037</color>
+    <color name="colorAccent">#CDDC39</color>
+    <color name="actionbarText">#E8F5E9</color>
+    <color name="background">#9E9E9E</color>
+    <color name="darka">#2E7D32</color>
+    <color name="lightBackground">#FAFAFA</color>
+    <color name="lightText">#FAFAFA</color>
+    <color name="popupFade">#B39E9E9E</color>
+    <color name="rightAnswer">#4CAF50</color>
+    <color name="wrongAnswer">#FF0000</color>
+    <color name="answerNoCheck">#BDBDBD</color>
+    <color name="darkBB">#6D4C41</color>
+</resources>

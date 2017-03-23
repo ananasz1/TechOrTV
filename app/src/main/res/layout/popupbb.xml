@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/popupFade">
+
+    <android.support.v7.widget.CardView
+        style="@style/cardview"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            style="@style/cardLinear"
+            android:layout_margin="5dp">
+
+            <TextView
+                style="@style/question.BB"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/popupText"
+                style="@style/answers.bb"
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/summary"
+                style="@style/answers.bb"
+                android:gravity="center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightBackground">
+
+                <Button
+                    android:id="@+id/showResults"
+                    style="@style/ButtonLayout.popup.bb"
+                    android:layout_marginLeft="12dp"
+                    android:onClick="showResults"
+                    android:text="@string/buttonShowResults" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+
+                <Button
+                    android:id="@+id/tryAgain"
+                    style="@style/ButtonLayout.popup.bb"
+                    android:layout_marginRight="12dp"
+                    android:onClick="tryAgain"
+                    android:text="@string/buttonTryAgain" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
