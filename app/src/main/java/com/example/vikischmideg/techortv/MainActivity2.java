@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
     LinearLayout newButtons;
     CoordinatorLayout coordinatorLayout;
     RadioButton q1a1, q1a2, q1a3, q1a4, q2a1, q2a2, q2a3, q2a4, q3a1, q3a2, q3a3, q3a4;
-    CheckBox q4a1, q4a2, q4a3, q4a4, q5a1, q5a2, q5a3, q5a4, q6a1, q6a2, q6a3, q6a4;;
+    CheckBox q4a1, q4a2, q4a3, q4a4, q5a1, q5a2, q5a3, q5a4, q6a1, q6a2, q6a3, q6a4;
     EditText q7a, q8a;
     String wrong = "#FF0000";
     String right = "#4CAF50";
@@ -102,245 +104,250 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     /**
-         * called when click submit
-         */
-        @SuppressLint("StringFormatMatches")
-        public void submit(View v) {
-            //set all the correct answers, and give points
-            int points = 0;
+     * called when click submit
+     */
+    @SuppressLint("StringFormatMatches")
+    public void submit(View v) {
+        //set all the correct answers, and give points
+        int points = 0;
 
-            {
-                //RadioButton correct answers
-                if (q1a2.isChecked())points += 1;
-                if (q2a4.isChecked()) points += 1;
-                if (q3a3.isChecked()) points += 1;
+        {
+            //RadioButton correct answers
+            if (q1a2.isChecked()) points += 1;
+            if (q2a4.isChecked()) points += 1;
+            if (q3a3.isChecked()) points += 1;
 
-                //CheckBox correct answers
-                if (q4a1.isChecked()&& q4a2.isChecked()&& !q4a3.isChecked()&& q4a4.isChecked()) points += 1;
-                if (q5a1.isChecked()&& q5a2.isChecked()&& q5a3.isChecked()&& !q5a4.isChecked()) points += 1;
-                if (!q6a1.isChecked()&& q6a2.isChecked()&& q6a3.isChecked()&& !q6a4.isChecked()) points += 1;
+            //CheckBox correct answers
+            if (q4a1.isChecked() && q4a2.isChecked() && !q4a3.isChecked() && q4a4.isChecked())
+                points += 1;
+            if (q5a1.isChecked() && q5a2.isChecked() && q5a3.isChecked() && !q5a4.isChecked())
+                points += 1;
+            if (!q6a1.isChecked() && q6a2.isChecked() && q6a3.isChecked() && !q6a4.isChecked())
+                points += 1;
 
-                //EditText correct answers
-                String answer7 = q7a.getText().toString().trim();
-                if(answer7.equalsIgnoreCase(htc))  points += 1;
-                String answer8 = q8a.getText().toString().trim();
-                if(answer8.equalsIgnoreCase(market)) points += 1;
-            }
-            /**
-             * popup window positioning and content settings
-             */
-            layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-            ViewGroup pw = (ViewGroup) layoutInflater.inflate(popup, null);
-            popupWindow = new PopupWindow(pw, CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
-            popupWindow.showAtLocation(coordinatorLayout, Gravity.CENTER,0,0);
-
-            //set the messages (result and different summary messages)which appears in the popup window
-            TextView txtPoints = (TextView) pw.findViewById(R.id.popupText);
-            txtPoints.setText(getString(R.string.summaryPoints, points));
-
-            TextView txtSummary = (TextView) pw.findViewById(R.id.summary);
-            if (points <= 2) {
-                txtSummary.setText(R.string.summary1);
-            } else if (points <= 4) {
-                txtSummary.setText(R.string.summary2);
-            } else if (points <= 6) {
-                txtSummary.setText(R.string.summary3);
-            } else {
-                txtSummary.setText(R.string.summary4);
-            }
-            //start again the quiz
-            tryAgain = (Button) pw.findViewById (R.id.tryAgain);
-            tryAgain.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-                    startActivity(intent);
-
-                }
-            });
-            //close popup window, show results with different colors, and change the submit button to other buttons
-            showResults = (Button) pw.findViewById(R.id.showResults);
-            showResults.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    popupWindow.dismiss();
-
-                    //every right answer change to green
-                    q1a2.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q2a4.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q3a3.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q4a1.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q4a2.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q4a4.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q5a1.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q5a2.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q5a3.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q6a2.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    q6a3.setTextColor(getResources().getColor(R.color.rightAnswer));
-
-                    //set the wrong answer and non checked answer colors
-                    //RadioGroup1
-                    if (q1a1.isChecked()) {
-                        q1a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q1a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q1a3.isChecked()) {
-                        q1a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q1a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q1a4.isChecked()) {
-                        q1a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q1a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    //RadioGroup2
-                    if (q2a1.isChecked()) {
-                        q2a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q2a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q2a2.isChecked()) {
-                        q2a2.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q2a2.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q2a3.isChecked()) {
-                        q2a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q2a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    //RadioGroup3
-                    if (q3a1.isChecked()) {
-                        q3a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q3a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q3a2.isChecked()) {
-                        q3a2.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q3a2.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q3a4.isChecked()) {
-                        q3a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q3a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-
-                    //CheckBox1
-                    if (q4a3.isChecked()) {
-                        q4a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q4a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    //CheckBox2
-                    if (q5a4.isChecked()) {
-                        q5a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q5a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    //CheckBox3
-                    if (q6a1.isChecked()) {
-                        q6a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q6a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    if (q6a4.isChecked()) {
-                        q6a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
-                    } else {
-                        q6a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
-                    }
-                    //EditText1
-                    EditText answer7 = q7a;
-                    String correct7 = answer7.getText().toString().trim();
-                    if (correct7.equalsIgnoreCase(htc)) {
-                        q7a.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    }
-                    else {
-                        EditText wrong7 = q7a;
-                        String wrong7a = wrong7.getText().toString().trim();
-                        wrong7a = getColorToText(wrong7a, wrong);
-                        String right7 = getColorToText(htc, right);
-                        wrong7.setText(Html.fromHtml(wrong7a + " -> " + right7));
-                    }
-                    //EditText2
-                    EditText answer8 = q8a;
-                    String correct8 = answer8.getText().toString().trim();
-                    if (correct8.equalsIgnoreCase(market)) {
-                        q8a.setTextColor(getResources().getColor(R.color.rightAnswer));
-                    }
-                    else {
-                        EditText wrong8 = q8a;
-                        String wrong8a = wrong8.getText().toString().trim();
-                        wrong8a = getColorToText(wrong8a, wrong);
-                        String right8 = getColorToText(market, right);
-                        wrong8.setText(Html.fromHtml(wrong8a + " -> " + right8));
-                    }
-
-                    //disable to click on answers when show results
-                    q1a1.setEnabled(false);
-                    q1a2.setEnabled(false);
-                    q1a3.setEnabled(false);
-                    q1a4.setEnabled(false);
-                    q2a1.setEnabled(false);
-                    q2a2.setEnabled(false);
-                    q2a3.setEnabled(false);
-                    q2a4.setEnabled(false);
-                    q3a1.setEnabled(false);
-                    q3a2.setEnabled(false);
-                    q3a3.setEnabled(false);
-                    q3a4.setEnabled(false);
-                    q4a1.setEnabled(false);
-                    q4a2.setEnabled(false);
-                    q4a3.setEnabled(false);
-                    q4a4.setEnabled(false);
-                    q5a1.setEnabled(false);
-                    q5a2.setEnabled(false);
-                    q5a3.setEnabled(false);
-                    q5a4.setEnabled(false);
-                    q6a1.setEnabled(false);
-                    q6a2.setEnabled(false);
-                    q6a3.setEnabled(false);
-                    q6a4.setEnabled(false);
-                    q7a.setEnabled(false);
-                    q8a.setEnabled(false);
-
-                    //**change buttons visibility
-                    submit.setVisibility(View.GONE);
-                    newButtons.setVisibility(View.VISIBLE);
-
-                    //start again the test, good luck toast message
-                    tryAgain2 = (Button) findViewById (R.id.tryAgain2);
-                    tryAgain2.setOnClickListener(new View.OnClickListener() {
-
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(MainActivity2.this, R.string.toast2, Toast.LENGTH_SHORT).show();
-
-                            Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    //exit the app, good bye toast message
-                    close = (Button) findViewById(R.id.close);
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(MainActivity2.this, R.string.toast3, Toast.LENGTH_SHORT).show();
-
-                            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-                            homeIntent.addCategory( Intent.CATEGORY_HOME );
-                            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(homeIntent);
-                        }
-                    });
-
-                }
-
-            });
+            //EditText correct answers
+            String answer7 = q7a.getText().toString().trim();
+            if (answer7.equalsIgnoreCase(htc)) points += 1;
+            String answer8 = q8a.getText().toString().trim();
+            if (answer8.equalsIgnoreCase(market)) points += 1;
         }
+        /**
+         * popup window positioning and content settings
+         */
+        layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        ViewGroup pw = (ViewGroup) layoutInflater.inflate(popup, null);
+        popupWindow = new PopupWindow(pw, CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.showAtLocation(coordinatorLayout, Gravity.CENTER, 0, 0);
+
+        //set the messages (result and different summary messages)which appears in the popup window
+        TextView txtPoints = (TextView) pw.findViewById(R.id.popupText);
+        txtPoints.setText(getString(R.string.summaryPoints, points));
+
+        TextView txtSummary = (TextView) pw.findViewById(R.id.summary);
+        if (points <= 2) {
+            txtSummary.setText(R.string.summary1);
+        } else if (points <= 4) {
+            txtSummary.setText(R.string.summary2);
+        } else if (points <= 6) {
+            txtSummary.setText(R.string.summary3);
+        } else {
+            txtSummary.setText(R.string.summary4);
+        }
+        //start again the quiz
+        tryAgain = (Button) pw.findViewById(R.id.tryAgain);
+        tryAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        //close popup window, show results with different colors, and change the submit button to other buttons
+        showResults = (Button) pw.findViewById(R.id.showResults);
+        showResults.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+                //when show results, it go back to the top of the page
+                NestedScrollView scroll_view = (NestedScrollView) findViewById(R.id.scrollView);
+                scroll_view.fullScroll(ScrollView.FOCUS_UP);
+
+                //every right answer change to green
+                q1a2.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q2a4.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q3a3.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q4a1.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q4a2.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q4a4.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q5a1.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q5a2.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q5a3.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q6a2.setTextColor(getResources().getColor(R.color.rightAnswer));
+                q6a3.setTextColor(getResources().getColor(R.color.rightAnswer));
+
+                //set the wrong answer and non checked answer colors
+                //RadioGroup1
+                if (q1a1.isChecked()) {
+                    q1a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q1a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q1a3.isChecked()) {
+                    q1a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q1a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q1a4.isChecked()) {
+                    q1a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q1a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                //RadioGroup2
+                if (q2a1.isChecked()) {
+                    q2a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q2a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q2a2.isChecked()) {
+                    q2a2.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q2a2.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q2a3.isChecked()) {
+                    q2a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q2a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                //RadioGroup3
+                if (q3a1.isChecked()) {
+                    q3a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q3a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q3a2.isChecked()) {
+                    q3a2.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q3a2.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q3a4.isChecked()) {
+                    q3a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q3a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+
+                //CheckBox1
+                if (q4a3.isChecked()) {
+                    q4a3.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q4a3.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                //CheckBox2
+                if (q5a4.isChecked()) {
+                    q5a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q5a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                //CheckBox3
+                if (q6a1.isChecked()) {
+                    q6a1.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q6a1.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                if (q6a4.isChecked()) {
+                    q6a4.setTextColor(getResources().getColor(R.color.wrongAnswer));
+                } else {
+                    q6a4.setTextColor(getResources().getColor(R.color.answerNoCheck));
+                }
+                //EditText1
+                EditText answer7 = q7a;
+                String correct7 = answer7.getText().toString().trim();
+                if (correct7.equalsIgnoreCase(htc)) {
+                    q7a.setTextColor(getResources().getColor(R.color.rightAnswer));
+                } else {
+                    EditText wrong7 = q7a;
+                    String wrong7a = wrong7.getText().toString().trim();
+                    wrong7a = getColorToText(wrong7a, wrong);
+                    String right7 = getColorToText(htc, right);
+                    wrong7.setText(Html.fromHtml(wrong7a + " -> " + right7));
+                }
+                //EditText2
+                EditText answer8 = q8a;
+                String correct8 = answer8.getText().toString().trim();
+                if (correct8.equalsIgnoreCase(market)) {
+                    q8a.setTextColor(getResources().getColor(R.color.rightAnswer));
+                } else {
+                    EditText wrong8 = q8a;
+                    String wrong8a = wrong8.getText().toString().trim();
+                    wrong8a = getColorToText(wrong8a, wrong);
+                    String right8 = getColorToText(market, right);
+                    wrong8.setText(Html.fromHtml(wrong8a + " -> " + right8));
+                }
+
+                //disable to click on answers when show results
+                q1a1.setEnabled(false);
+                q1a2.setEnabled(false);
+                q1a3.setEnabled(false);
+                q1a4.setEnabled(false);
+                q2a1.setEnabled(false);
+                q2a2.setEnabled(false);
+                q2a3.setEnabled(false);
+                q2a4.setEnabled(false);
+                q3a1.setEnabled(false);
+                q3a2.setEnabled(false);
+                q3a3.setEnabled(false);
+                q3a4.setEnabled(false);
+                q4a1.setEnabled(false);
+                q4a2.setEnabled(false);
+                q4a3.setEnabled(false);
+                q4a4.setEnabled(false);
+                q5a1.setEnabled(false);
+                q5a2.setEnabled(false);
+                q5a3.setEnabled(false);
+                q5a4.setEnabled(false);
+                q6a1.setEnabled(false);
+                q6a2.setEnabled(false);
+                q6a3.setEnabled(false);
+                q6a4.setEnabled(false);
+                q7a.setEnabled(false);
+                q8a.setEnabled(false);
+
+                //**change buttons visibility
+                submit.setVisibility(View.GONE);
+                newButtons.setVisibility(View.VISIBLE);
+
+                //start again the test, good luck toast message
+                tryAgain2 = (Button) findViewById(R.id.tryAgain2);
+                tryAgain2.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity2.this, R.string.toast2, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                //exit the app, good bye toast message
+                close = (Button) findViewById(R.id.close);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity2.this, R.string.toast3, Toast.LENGTH_SHORT).show();
+
+                        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+                        homeIntent.addCategory(Intent.CATEGORY_HOME);
+                        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(homeIntent);
+                    }
+                });
+
+            }
+
+        });
+    }
 
     //disable back button when popup window is showing (can't go back to change the answer)
     @Override
@@ -356,6 +363,7 @@ public class MainActivity2 extends AppCompatActivity {
         String input = "<font color=" + color + ">" + text + "</font>";
         return input;
     }
+
     //toolbar appearance
     private void dynamicToolbarColor() {
 

@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -132,7 +134,7 @@ public class MainActivitybb extends AppCompatActivity {
          */
         layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         ViewGroup pw = (ViewGroup) layoutInflater.inflate(popupbb, null);
-        popupWindow = new PopupWindow(pw, CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT, true);
+        popupWindow = new PopupWindow(pw, CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
         popupWindow.showAtLocation(coordinatorLayout, Gravity.CENTER,0,0);
 
         //set the messages (result and different summary messages)which appears in the popup window
@@ -166,6 +168,10 @@ public class MainActivitybb extends AppCompatActivity {
             public void onClick(View v) {
 
                 popupWindow.dismiss();
+
+                //when show results, it go back to the top of the page
+                NestedScrollView scroll_view = (NestedScrollView) findViewById(R.id.scrollView);
+                scroll_view.fullScroll(ScrollView.FOCUS_UP);
 
                 //every right answer change to green
                 q1a3.setTextColor(getResources().getColor(R.color.rightAnswer));
