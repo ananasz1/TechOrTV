@@ -324,4 +324,17 @@
 
     </android.support.v4.widget.NestedScrollView>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        style="@style/fab.droid"
+        app:backgroundTint="@color/darka"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        style="@style/fab.bb"
+        app:backgroundTint="@color/darkBB"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/fab.hint"
+        app:backgroundTint="@color/lightBackground"/>
+
 </android.support.design.widget.CoordinatorLayout>

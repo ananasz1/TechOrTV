@@ -89,5 +89,7 @@
     <string name="bbanswer8" translatable="false">Los Pollos Hermanos</string>
     <string name="bbtextcontent">Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family\'s future. Are you a real fan? Give it a try!</string>
     <string name="hint">answer here</string>
+    <string name="webandroid">https://en.wikipedia.org/wiki/Android_(operating_system)</string>
+    <string name="webbreakingbad">https://en.wikipedia.org/wiki/Breaking_Bad</string>
 </resources>
 

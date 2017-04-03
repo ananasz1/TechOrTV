@@ -145,6 +145,31 @@
         <item name="android:buttonTint" tools:targetApi="lollipop">@color/darkBB</item>
     </style>
 
+    <style name="fab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginRight">@dimen/fabMarginRight</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="fab.hint">
+        <item name="android:src">@drawable/hint</item>
+        <item name="android:layout_marginBottom">@dimen/fabMarginBottom</item>
+    </style>
+
+    <style name="fab.bb">
+        <item name="android:src">@drawable/minibb</item>
+        <item name="android:layout_marginBottom">@dimen/fabMarginBottom1</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="fab.droid">
+        <item name="android:src">@drawable/minidroid</item>
+        <item name="android:layout_marginBottom">@dimen/fabMarginBottom2</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
 </resources>
 
 

@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.vikischmideg.techortv.MainActivity2">
 
-    <android.support.design.widget.AppBarLayout style="@style/appBarLayout">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBAr"
+        style="@style/appBarLayout">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -323,5 +325,18 @@
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        style="@style/fab.droid"
+        app:backgroundTint="@color/darka"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        style="@style/fab.bb"
+        app:backgroundTint="@color/darkBB"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/fab.hint"
+        app:backgroundTint="@color/lightBackground"/>
 
 </android.support.design.widget.CoordinatorLayout>

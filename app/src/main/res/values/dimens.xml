@@ -10,5 +10,8 @@
     <dimen name="buttonPaddingRight">12dp</dimen>
     <dimen name="buttonPopUpWidth">0dp</dimen>
     <dimen name="buttonMarginBottom">12dp</dimen>
-
+    <dimen name="fabMarginRight">16dp</dimen>
+    <dimen name="fabMarginBottom">16dp</dimen>
+    <dimen name="fabMarginBottom1">90dp</dimen>
+    <dimen name="fabMarginBottom2">160dp</dimen>
 </resources>

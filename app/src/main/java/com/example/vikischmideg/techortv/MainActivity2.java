@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
@@ -17,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -31,7 +35,7 @@ import android.widget.Toast;
 import static com.example.vikischmideg.techortv.R.layout.popup;
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
 
     private CollapsingToolbarLayout collapsingToolbarLayout = null;
     private PopupWindow popupWindow;
@@ -39,6 +43,9 @@ public class MainActivity2 extends AppCompatActivity {
     private Button tryAgain;
     private Button tryAgain2;
     private Button close;
+    private Boolean isFabOpen = false;
+    private FloatingActionButton fab,fab1,fab2;
+    private Animation fab_open,fab_close;
 
     Button submit;
     Button showResults;
@@ -95,6 +102,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         dynamicToolbarColor();
         toolbarTextAppernce();
+
+        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab1 = (FloatingActionButton)findViewById(R.id.fab1);
+        fab2 = (FloatingActionButton)findViewById(R.id.fab2);
+        fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        fab.setOnClickListener(this);
+        fab1.setOnClickListener(this);
+        fab2.setOnClickListener(this);
+
         /**
          * setting the visibility of buttons
          */
@@ -372,8 +389,8 @@ public class MainActivity2 extends AppCompatActivity {
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-                collapsingToolbarLayout.setContentScrimColor(getResources().getColor(R.color.colorPrimary));
-                collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.colorPrimaryDark));
+                collapsingToolbarLayout.setContentScrimColor(getResources().getColor(R.color.darka));
+                collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.darka));
             }
         });
     }
@@ -391,5 +408,51 @@ public class MainActivity2 extends AppCompatActivity {
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
         return super.dispatchTouchEvent(ev);
+    }
+    //floating action buttons settings
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.fab:
+                animateFAB();
+                break;
+
+            case R.id.fab1:
+                //open BB wiki in browser
+                String url = getResources().getString(R.string.webbreakingbad);
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+
+            case R.id.fab2:
+                //open android wiki in browser
+                url = getResources().getString(R.string.webandroid);
+                i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+        }
+    }
+    //FAB animation settings
+    public void animateFAB(){
+
+        if(isFabOpen){
+
+            fab1.startAnimation(fab_close);
+            fab2.startAnimation(fab_close);
+            fab1.setClickable(false);
+            fab2.setClickable(false);
+            isFabOpen = false;
+
+        } else {
+
+            fab1.startAnimation(fab_open);
+            fab2.startAnimation(fab_open);
+            fab1.setClickable(true);
+            fab2.setClickable(true);
+            isFabOpen = true;
+        }
     }
 }
