@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="fab.a">
+        <item name="android:backgroundTint">@color/darka</item>
+    </style>
+</resources>
